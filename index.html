@@ -1,0 +1,161 @@
+<!DOCTYPE html> <!-- 文档类型声明 -->
+<html> <!-- 根节点 -->
+	<head> <!-- 配置信息 -->
+		<meta charset="utf-8" /> <!-- 编码设置 -->
+		<title> My First WebPage</title> <!-- 标题 -->		
+	</head>
+	<body> <!-- 主体信息 -->
+		My First WebPage.
+		
+		<!-- common label -->
+		<!-- this is a comment label -->
+		
+		<!-- title label h1~h6 --> 
+		<!-- 标题标签 h1~h6 -->
+		<h1>h1 label</h1> 
+		<h2>h2 label</h2>
+		<h3>h3 label</h3>
+		<h4>h4 label</h4>
+		<h5>h5 label</h5>
+		<h6>h6 label</h6>
+		
+		<!-- text label --> 
+		<!-- 横着布局的文本标签 -->
+		<span>span</span>
+		<!-- span用来划分区域，形成独立空间，外人看来没有区别，多用于设置单独样式 -->
+		<span>testa</span> 
+		<!-- example -->
+		<span style="color:red">testb</span>testd
+		<span>testc</span>
+		
+		<!-- 竖着布局的文本标签 -->
+		<div>div1</div>
+		<div>div2</div>
+		<div>div3</div>
+		
+		<!-- 段落标签 -->
+		<p>test content1</p>
+		<p>test content2</p>
+		
+		<!-- 超链接标签 href用来设置资源路径 target用来设置资源打开窗口的方式(默认_self)，也可自定义窗口打开(通过iframe)(共3种) -->
+		<a href="http://occs.cc" target="_self">go to occs.cc</a> <!-- open in current tab-->
+		<a href="http://occs.cc" target="_black">go to occs.cc black</a> <!-- open in new tab -->
+		
+		<!-- 锚点标签 name用来设置锚点值 通过超链接跳转 -->
+		<!-- name href target可以同时使用，各司其职 -->
+		<a name="bzy">begin position</a>
+		<a href="#bzy" style="color:blue;font-size:19px;position:fixed">go to position</a> <!-- 跳转锚点标签href中加#和锚点name -->
+		<!-- ps: fixed固定的-->
+		
+		<!-- html标签可以互相嵌套 -->
+		<!-- example -->
+		<h3><a name="bzyaa">begin position</a></h3>
+		
+		<!-- 同样的style，可以通过以下方式简化 -->
+		<div style="position:fixed;right:10px;bottom:500px">
+			<div><a href="#bzyaa" style="color:black">begin position</a></div> <!-- a标签的天生fontcolor只能在自身改 -->
+			<div><a href="#bzyaa">begin position</a></div>
+			<div><a href="#bzyaa">begin position</a></div>
+		</div>
+		
+		<!-- 图片标签 src是引用图片的资源 alt是在图片未加载成功时代替图片显示的文本 -->
+		<!-- 图片格式无要求，只要windows操作系统支持的，浏览器均可支持 -->
+		<img src="http://tiebapic.baidu.com/forum/pic/item/4da6a9ec08fa513dacb6f5962a6d55fbb2fbd900.jpg?tbpicau=2022-03-24-05_f682c99b5fd0fc5e7edc0ac78b4a0632" height="200" alt="err display">
+		<img src="1.jpg" alt="" width="100" height="100"> <!-- 相对路径的方式 --> <!-- width height不建议同时使用，只使用一个方向，另一个方向会等比变化 -->
+		<img src="1.jpg" alt="" style="height:100px"> <!--此为style方式改大小，上为通过img属性更改大小-->
+		<!-- 路径分为绝对路径、相对路径 -->
+		<!-- 相对路径：访问资源方与被访问资源方的关系即为相对路径 -->
+			<!-- 举例：
+				<img src="../images/2.png"> 
+				如此目录层次，可以使用../images/2.png这样的相对路径来表示 -->
+				
+		<!-- 绝对路径：被访问资源的所在磁盘中的绝对位置即为绝对路径 -->
+		<!-- example -->
+		<img src="E:\code\html\1.jpg" alt="" width="50">
+		
+		<!-- 列表标签 -->
+		<!-- 列表标签分为无序列表和有序列表 -->
+		<ul> <!-- 无序列表标签 -->
+			<li>ul1</li>
+			<li>ul2</li>
+		</ul>
+		<ol type="a" start="2"> <!-- 有序列表标签 --> <!-- type序号类型 start从某序号开始 -->
+			<li>ol1</li>
+			<li>ol2</li>
+		</ol>
+		
+		<!-- 表格标签 先有行再有列 -->
+		<table border="1" width="500" cellpadding="10" cellspacing="0"> <!-- width控制表格宽度 cellpadding内容与边框间的填充度 cellspacing单元格间距 -->
+			<thead> <!-- thead.tbody.tfoot是非必须标签，达到各自互不影响效果 第一行会显示thead,最后一行显示tfoot -->
+				<tr>
+					<td>name</td>
+					<td>age</td>
+					<td>age</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<!-- 不会出现同时合并行和列的单元格 -->
+					<td rowspan="2">name1</td> <!-- rowspan单元格合并行，一格顶替rowspan value个格 -->
+					<th colspan="2">age1</th> <!-- colspan单元格合并列，一格顶替colspan value个格 -->
+				</tr>
+				<tr>
+					<!-- <td>name2</td> -->
+					<td>age2</td>
+					<td>age</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<th>name3</th> <!-- th会把内容居中并加粗, td普通内容 -->
+					<th>age3</th>
+					<th>age3</th>
+				</tr>
+			</tfoot>
+		</table>
+		
+		<!-- 框架标签（窗口标签） 作用：嵌套其他页面  src目标页面的路径 frameborder框架边框 -->
+		<iframe src="test.html" width="100%" frameborder="0"></iframe> <!-- address mode -->
+		<iframe src="http://www.baidu.com" width="100%" frameborder="0" name="occs"></iframe> <!-- link mode -->
+		<a href="http://occs.cc" target="occs">iframe go to occs</a> <!-- 自定义跳转窗口a与iframe标签相呼应 -->
+	
+		<!-- 换行标签 -->
+		<br>
+		<!-- 表单标签 -->
+		<form>
+			<!-- input标签 default type is text是单行文本框 type="password"密码框 type="radio"单选框name相同的name用来分组 type="checkbox"复选框(也有name) type="file"文件选择器 type="color"颜色拾取器 type="datetime-local"日期时间选择器 type="week"周选择器 type="range"滑块选择器 type="number"数字选择器 -->
+			<input type="text"><br>
+			<input type="password"><br>
+			<input type="radio" name="sex">male<input type="radio" name="sex">female<br>
+			<input type="checkbox" name="test">a<input type="checkbox" name="test">b<br>
+			<input type="file"><br>
+			<input type="color"><br>
+			<input type="datetime-local"><br>
+			<input type="week"><br>
+			<input type="range" min="0" max="100" value="80"><br> <!-- value是默认值 -->
+			<input type="number" min="0" max="100" value="70" step="3"><br> <!-- step是步长 -->
+			
+			<!-- 下拉框 -->
+			<select>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+			</select>
+			<br>
+			
+			<!-- 多行文本域 -->
+			<textarea rows="30" cols="80"></textarea> <!-- 通过rows,cols控制高，宽 -->
+			
+			<input type="submit"> <!-- 提交 -->
+			<input type="reset" value="areset"> <!-- 重置 -->
+			<input type="button" value="an"> <!-- value即显示的名字 --><br>
+			
+			<!-- 音频标签 -->
+			<audio src="1.m4a" controls autoplay loop></audio> <!-- controls提供音频控制 controls的值为true,false可以省略为controls  autoplay自动播放 loop循环播放 -->
+			
+			<!-- 视频标签 -->
+			<video src="2.mkv" controls autoplay loop style="width:300px"></video>
+			
+		</form>
+	</body>
+</html>
