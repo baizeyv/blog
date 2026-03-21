@@ -31,4 +31,4 @@ jobs:
           # 执行 scp 命令
           # -o StrictHostKeyChecking=no：跳过首次连接确认指纹的步骤
           # -r：递归拷贝整个目录
-          sshpass -p "${{ secrets.ECS_PASS }}" scp -o StrictHostKeyChecking=no -r public/* ${{ secrets.ECS_USER }}@${{ secrets.ECS_HOST }}:/var/www/blog/
+          sshpass -p "${{ secrets.ECS_PASS }}" scp -o StrictHostKeyChecking=no -r public/* "$ECS_USER"@"$ECS_HOST":/var/www/blog/
