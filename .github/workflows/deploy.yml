@@ -1,0 +1,36 @@
+name: Deploy Hugo to ECS (Password Mode)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build static files
+        run: hugo --minify
+
+      - name: Copy files via SSH password
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.ECS_HOST }}
+          username: ${{ secrets.ECS_USER }}
+          password: ${{ secrets.ECS_PASS }}
+          port: 22
+          source: "public/*"
+          target: "/var/www/blog"
+          strip_components: 1 # 这一行很重要，确保只上传 public 内部的内容，而不是连带 public 文件夹本身
