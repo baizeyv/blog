@@ -1,4 +1,4 @@
-baseURL = 'https://meowody.com/'
+baseURL = 'https://meowody.com/blog/'
 locale = 'en-us'
 title = 'meowody blog'
 theme = "mana"
