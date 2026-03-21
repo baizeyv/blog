@@ -1,0 +1,76 @@
+baseURL = 'https://meowody.com/'
+locale = 'en-us'
+title = 'meowody blog'
+theme = "mana"
+
+[params]
+    # 主页标题下的描述文本
+    description = "description for my blog"
+    favicon = "/favicon/favicon.ico"
+    footerText = "testt footerText"
+
+    heroTitleLine1 = "line 1 test content"
+    heroTitleLine2 = "line 2 test content"
+
+    [params.codeHighlight]
+        darkTheme = "catppuccin-macchiato"   # Theme for dark mode
+        lightTheme = "catppuccin-frappe"     # Theme for light mode
+
+[params.avatar]
+    [params.avatar.home]
+        assetPath = "images/testpic.png"
+    [params.avatar.about]
+        assetPath = "images/avatar.jpg"
+
+[params.social]
+    github = "https://github.com/baizeyv"
+    gitlab = "https://gitlab.com/baizeyv"
+    twitter = "_baizeyv"
+    email = "baizeyv@gmail.com"
+
+[[menus.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 10
+
+[[menus.main]]
+    name = 'Posts'
+    pageRef = '/posts'
+    weight = 20
+
+[[menus.main]]
+    name = 'Tags'
+    pageRef = '/tags'
+    weight = 30
+
+[[menus.main]]
+    name = 'About'
+    url = '/about/'
+    weight = 40
+
+[pagination]
+    pageSize = 10
+
+[markup]
+    [markup.tableOfContents]
+        startLevel = 1
+        endLevel = 6
+        ordered = false
+
+    [markup.goldmark]
+        [markup.goldmark.parser]
+            [markup.goldmark.parser.attribute]
+                block = true
+                title = true
+
+    [markup.highlight]
+        codeFences = true
+        guessSyntax = true
+        noClasses = false
+        style = "catppuccin-macchiato"  # Default style
+
+[params.admonitions]
+    alertStyle = "emoji"
+
+[outputs]
+    home = ["HTML", "JSON"]
