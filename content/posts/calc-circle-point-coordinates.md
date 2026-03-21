@@ -2,8 +2,8 @@
 date = '2026-03-21T17:11:28+08:00'
 draft = false
 title = 'Calc Circle Point Coordinates'
-tags: ["calc", "coordinates"]
-image: "/images/testpic.png"
+tags = ["calc", "coordinates"]
+image = "/images/testpic.png"
 +++
 
 # 求圆上点的坐标
