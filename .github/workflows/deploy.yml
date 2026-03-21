@@ -1,4 +1,4 @@
-name: Deploy Hugo to ECS (Password Mode)
+name: Deploy Hugo via Native SCP
 
 on:
   push:
@@ -6,14 +6,13 @@ on:
       - main
 
 jobs:
-  build-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           submodules: recursive
-          fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -24,13 +23,12 @@ jobs:
       - name: Build static files
         run: hugo --minify
 
-      - name: Copy files via SSH password
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.ECS_HOST }}
-          username: ${{ secrets.ECS_USER }}
-          password: ${{ secrets.ECS_PASS }}
-          port: 22
-          source: "public/*"
-          target: "/var/www/blog"
-          strip_components: 1 # 这一行很重要，确保只上传 public 内部的内容，而不是连带 public 文件夹本身
+      - name: Install sshpass and Deploy
+        run: |
+          # 安装 sshpass 辅助工具
+          sudo apt-get update && sudo apt-get install -y sshpass
+          
+          # 执行 scp 命令
+          # -o StrictHostKeyChecking=no：跳过首次连接确认指纹的步骤
+          # -r：递归拷贝整个目录
+          sshpass -p "${{ secrets.ECS_PASS }}" scp -o StrictHostKeyChecking=no -r public/* ${{ secrets.ECS_USER }}@${{ secrets.ECS_HOST }}:/var/www/blog/
