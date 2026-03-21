@@ -32,10 +32,6 @@ jobs:
           # 安装 sshpass 辅助工具
           sudo apt-get update && sudo apt-get install -y sshpass
           
-          echo "Host length: ${#MY_HOST}"
-          echo "USER length: ${#MY_USER}"
-          echo "PASS length: ${#MY_PASS}"
-          
           # 执行 scp 命令
           # -o StrictHostKeyChecking=no：跳过首次连接确认指纹的步骤
           # -r：递归拷贝整个目录
