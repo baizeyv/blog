@@ -24,6 +24,10 @@ jobs:
         run: hugo --minify
 
       - name: Install sshpass and Deploy
+        env:
+          MY_USER: ${{ secrets.ECS_USER }}
+          MY_HOST: ${{ secrets.ECS_HOST }}
+          MY_PASS: ${{ secrets.ECS_PASS }}
         run: |
           # 安装 sshpass 辅助工具
           sudo apt-get update && sudo apt-get install -y sshpass
@@ -31,4 +35,4 @@ jobs:
           # 执行 scp 命令
           # -o StrictHostKeyChecking=no：跳过首次连接确认指纹的步骤
           # -r：递归拷贝整个目录
-          sshpass -p "${{ secrets.ECS_PASS }}" scp -o StrictHostKeyChecking=no -r public/* "$ECS_USER"@"$ECS_HOST":/var/www/blog/
+          sshpass -p "$MY_PASS" scp -o StrictHostKeyChecking=no -r public/* "$MY_USER"@"$MY_HOST":/var/www/blog/
