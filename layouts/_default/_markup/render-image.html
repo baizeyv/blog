@@ -1,0 +1,9 @@
+{{- $post := .Page -}}
+{{- $src := .Destination -}}
+{{- if not (urls.Parse $src).IsAbs -}}
+  {{- $resource := $post.Resources.GetMatch $src -}}
+  {{- if $resource -}}
+    {{- $src = $resource.RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+<img src="{{ $src | safeURL }}" alt="{{ .Text }}" {{ with .Title }} title="{{ . }}" {{ end }} />
