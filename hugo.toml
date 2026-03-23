@@ -23,7 +23,7 @@ theme = "mana"
 
 [params.avatar]
     [params.avatar.home]
-        assetPath = "images/testpic.png"
+        assetPath = "images/meowody.png"
     [params.avatar.about]
         assetPath = "images/avatar.jpg"
 
