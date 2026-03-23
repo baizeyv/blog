@@ -1,20 +1,25 @@
 baseURL = 'https://meowody.com/blog/'
 locale = 'en-us'
-title = 'meowody blog'
+title = 'meowody'
 theme = "mana"
 
 [params]
     # 主页标题下的描述文本
-    description = "description for my blog"
+    description = "My blog about technology ... well, everything"
     favicon = "/favicon/favicon.ico"
-    footerText = "testt footerText"
+    footerText = "[ Sincerity for sincerity, strength for a voice ] 京ICP备2026012168号  京公网安备11010802047850号"
+    author = "baizeyv"
 
-    heroTitleLine1 = "line 1 test content"
-    heroTitleLine2 = "line 2 test content"
+    heroTitleLine1 = "meowody blog"
+    heroTitleLine2 = "TO EVERYTHING"
 
     [params.codeHighlight]
         darkTheme = "catppuccin-macchiato"   # Theme for dark mode
         lightTheme = "catppuccin-frappe"     # Theme for light mode
+
+[params.copyright]
+    startYear = 2026
+    owner = "baizeyv"
 
 [params.avatar]
     [params.avatar.home]
