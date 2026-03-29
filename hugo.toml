@@ -1,31 +1,12 @@
-baseURL = 'https://meowody.com/blog/'
-locale = 'en-us'
-title = 'meowody'
-theme = "mana"
-
-[params]
-    # 主页标题下的描述文本
-    description = "My blog about technology ... well, everything"
-    favicon = "/favicon/favicon.ico"
-    footerText = "[ Sincerity for sincerity, strength for a voice ] 京ICP备2026012168号  京公网安备11010802047850号"
-    author = "baizeyv"
-
-    heroTitleLine1 = "meowody blog"
-    heroTitleLine2 = "TO EVERYTHING"
-
-    [params.codeHighlight]
-        darkTheme = "catppuccin-macchiato"   # Theme for dark mode
-        lightTheme = "catppuccin-frappe"     # Theme for light mode
-
-[params.copyright]
-    startYear = 2026
-    owner = "baizeyv"
+baseURL = 'https://meowody.com/'
+theme = 'meowody'
+defaultContentLanguage = "en"
 
 [params.avatar]
-    [params.avatar.home]
-        assetPath = "images/meowody.png"
-    [params.avatar.about]
-        assetPath = "images/avatar.jpg"
+  [params.avatar.home]
+    assetPath = "img/meowody.png"
+  [params.avatar.about]
+    assetPath = "img/meowody.png"
 
 [params.social]
     github = "https://github.com/baizeyv"
@@ -33,49 +14,113 @@ theme = "mana"
     twitter = "_baizeyv"
     email = "baizeyv@gmail.com"
 
-[[menus.main]]
-    name = 'Home'
-    pageRef = '/'
-    weight = 10
-
-[[menus.main]]
-    name = 'Posts'
-    pageRef = '/posts'
-    weight = 20
-
-[[menus.main]]
-    name = 'Tags'
-    pageRef = '/tags'
-    weight = 30
-
-[[menus.main]]
-    name = 'About'
-    url = '/about/'
-    weight = 40
-
 [pagination]
-    pageSize = 10
-
-[markup]
-    [markup.tableOfContents]
-        startLevel = 1
-        endLevel = 6
-        ordered = false
-
-    [markup.goldmark]
-        [markup.goldmark.parser]
-            [markup.goldmark.parser.attribute]
-                block = true
-                title = true
-
-    [markup.highlight]
-        codeFences = true
-        guessSyntax = true
-        noClasses = false
-        style = "catppuccin-macchiato"  # Default style
-
-[params.admonitions]
-    alertStyle = "emoji"
+  pageSize = 10
 
 [outputs]
-    home = ["HTML", "JSON"]
+  home = ["HTML", "JSON"]
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 6
+    ordered = false
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.goldmark.parser]
+    [markup.goldmark.parser.attribute]
+      block = true
+      title = true
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    noClasses = false
+    style = "catppuccin-macchiato"  # Default style
+    lineNos = true
+    lineNumbersInTable = false
+
+[params]
+  [params.codeHighlight]
+    darkTheme = "catppuccin-macchiato"   # Theme for dark mode
+    lightTheme = "catppuccin-latte"     # Theme for light mode
+  [params.beian]
+    location = "京"
+    icp = "2026012168"
+    publicSecurity = "11010802047850"
+
+
+[languages.en]
+  languageCode = "en-US"
+  languageName = "English"
+  languageDirection = "ltr"
+  weight = 1
+  title = "meowody"
+
+  # Override root params when needed. Omit keys to use root defaults.
+  [languages.en.params]
+    description = "My blog about technology ... well, everything"
+    author = "baizeyv"
+    heroTitleLine1 = "meowody blog"
+    heroTitleLine2 = "TO EVERYTHING"
+    custom404Message = "Sorry, the page you are looking for could not be found."
+    # Footer text (optional)
+    footerText = "Sincerity for sincerity, strength for a voice"
+
+  [[languages.en.menus.main]]
+    name = "Home"
+    pageRef = "/"
+    weight = 10
+
+  [[languages.en.menus.main]]
+    name = "Posts"
+    pageRef = "/posts"
+    weight = 20
+
+  [[languages.en.menus.main]]
+    name = "Tags"
+    pageRef = "/tags"
+    weight = 30
+
+  [[languages.en.menus.main]]
+    name = "About"
+    url = "/about/"
+    weight = 40
+
+[languages.zh]
+  languageCode = "zh-CN"
+  languageName = "Chinese"
+  languageDirection = "ltr"
+  weight = 2
+  title = "喵喵麦乐迪"
+
+  # Override root params when needed. Omit keys to use root defaults.
+  [languages.zh.params]
+    description = "我的博客 ... 关于所有"
+    author = "白泽宇"
+    heroTitleLine1 = "喵喵麦乐迪博客"
+    heroTitleLine2 = "TO EVERYTHING"
+    custom404Message = "对不起, 页面走丢了..."
+    # Footer text (optional)
+    footerText = "真心换真心,力量换声音"
+
+  [[languages.zh.menus.main]]
+    name = "主页"
+    pageRef = "/"
+    weight = 10
+
+  [[languages.zh.menus.main]]
+    name = "文章"
+    pageRef = "/posts"
+    weight = 20
+
+  [[languages.zh.menus.main]]
+    name = "标签"
+    pageRef = "/tags"
+    weight = 30
+
+  [[languages.zh.menus.main]]
+    name = "关于"
+    url = "/about/"
+    weight = 40
+
+

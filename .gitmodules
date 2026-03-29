@@ -1,3 +1,6 @@
 [submodule "themes/mana"]
 	path = themes/mana
 	url = https://github.com/Livour/hugo-mana-theme.git
+[submodule "themes/meowody"]
+	path = themes/meowody
+	url = https://github.com/baizeyv/hugo-meowody-theme.git
