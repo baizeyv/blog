@@ -45,7 +45,6 @@ defaultContentLanguage = "en"
     lightTheme = "catppuccin-latte"     # Theme for light mode
   [params.beian]
     location = "京"
-    assetPath = "img/beian.png"
     icp = "2026012168"
     publicSecurity = "11010802047850"
 
