@@ -38,7 +38,8 @@ document.body.style.removeProperty("--primary");
 ```
 
 ```css
-<!-- style 中直接声明css变量 -- > body {
+/* style 中直接声明css变量 */
+body {
 	--foo: #7f583f;
 }
 .content {

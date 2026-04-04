@@ -38,7 +38,8 @@ document.body.style.removeProperty("--primary");
 ```
 
 ```css
-<!-- Declaring CSS variables directly within the style block -- > body {
+/* Declaring CSS variables directly within the style block */
+body {
 	--foo: #7f583f;
 }
 .content {
